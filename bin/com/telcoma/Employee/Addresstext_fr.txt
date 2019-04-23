@@ -1,0 +1,4 @@
+Welcome= French_Welcome to Spring Application
+FirstAddress=French_Manager First Address is :
+SecondAddress=French_Manager Second Address is :
+ThirdAddress=French_Manager Third Address is :

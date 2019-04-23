@@ -1,0 +1,5 @@
+package com.telcoma.Employee;
+
+public interface EmployeeAddress {
+public void address();
+}

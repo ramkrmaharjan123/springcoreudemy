@@ -1,0 +1,4 @@
+Welcome= Default_Welcome to Spring Application
+FirstAddress=Default_Manager First Address is :
+SecondAddress=Default_Manager Second Address is :
+ThirdAddress=Default_Manager Third Address is :

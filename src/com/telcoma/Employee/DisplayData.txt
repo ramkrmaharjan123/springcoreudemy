@@ -1,0 +1,24 @@
+package com.telcoma.Employee;
+
+import java.util.Locale;
+
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.FileSystemResource;
+
+public class DisplayData {
+
+	public static void main(String[] args) {
+	
+		ApplicationContext context = new ClassPathXmlApplicationContext("Spring.xml");
+		String message=context.getMessage("Welcome", new Object[]{"by","Telcoma"}, null);
+		System.out.println(message);
+		Manager manager=(Manager) context.getBean("manager_alias");
+		manager.address();
+	
+	}
+
+}

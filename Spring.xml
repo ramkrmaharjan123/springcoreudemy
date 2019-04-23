@@ -1,0 +1,74 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- <bean name="managerParent" class="com.telcoma.Employee.Manager"> <property 
+		name="address1" ref="addressA"></property> </bean> -->
+
+
+<!-- 	<bean id="manager" class="com.telcoma.Employee.Manager" name="manager-alias"  >
+		<property name="address1" ref="addressA"></property>
+		<property name="address2" ref="addressB"></property>
+		<property name="address3" ref="addressC"></property>
+		 <property name="pincode" value="160048"></property>
+	</bean> -->
+
+	<alias name="manager" alias="manager_alias"></alias>
+
+
+	<bean name="address1" class="com.telcoma.Employee.Address" >
+	 <property name="city" value="${addressA.city}"></property>
+		<property name="hNo" value="${addressA.hNo}"></property> 
+	</bean>
+	
+	<import resource="spring_test.xml"></import>
+
+	<bean id="address2" class="com.telcoma.Employee.Address">
+	<!-- <qualifier value="address_bean"></qualifier> -->
+		<property name="city" value="${addressb.city}"></property>
+		<property name="hNo" value="${addressb.hNo}"></property>
+	</bean>
+
+
+	<bean id="address3" class="com.telcoma.Employee.Address">
+		<property name="city" value="Delhi"></property>
+		<property name="hNo" value="56"></property>
+	</bean>
+
+	<bean id="director" class="com.telcoma.Employee.Director" scope="prototype">
+		
+		<!-- <constructor-arg type="int" value="245"></constructor-arg> -->
+		<constructor-arg type="java.lang.String"  value="Delhi"></constructor-arg>
+
+	</bean>
+	<!-- 	<bean class="com.telcoma.Employee.MyBeanPostProcessor"/> -->
+	
+	<!-- <bean class="com.telcoma.Employee.MyBeanFactoryPostProcessor"></bean> -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<property name="locations">
+	<list>
+	<value>Address.properties</value>
+	<value>Addressb.properties</value>
+	</list>
+	</property>
+	
+	</bean>
+	
+	<context:annotation-config />
+	<context:component-scan base-package="com.telcoma.Employee"></context:component-scan>
+<!-- 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean> -->
+
+  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+  <property name="basename">
+  <value>Addresstext</value>
+  </property>
+  
+  </bean>
+</beans>

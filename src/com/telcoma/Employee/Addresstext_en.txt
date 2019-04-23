@@ -1,0 +1,4 @@
+Welcome=Welcome to Spring Application {0}  {1}
+FirstAddress=Manager First Address is :
+SecondAddress=Manager Second Address is :
+ThirdAddress=Manager Third Address is :
